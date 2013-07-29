@@ -60,15 +60,15 @@
                 });
 
                 $(".share-twitter").click(function(){
-                    window.open('https://twitter.com/intent/tweet?text=' + shareTitle + ' ' + shareURL + '&amp;url=' + shareURL, 'twitter', 'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes');
+                    window.open('https://twitter.com/intent/tweet?text=' + shareTitle + ' ' + shareURL + '&amp;url=' + shareURL, 'twitter', + windowOptions);
                 });
 
                 $(".share-linkedin").click(function(){
-                    window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', 'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes'); 
+                    window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', + windowOptions); 
                 });
 
                 $(".share-googleplus").click(function(){
-                    window.open('https://plusone.google.com/_/+1/confirm?hl=en&url=' + shareURL + '&title=' + shareTitle, 'google+', 'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes');   
+                    window.open('https://plusone.google.com/_/+1/confirm?hl=en&url=' + shareURL + '&title=' + shareTitle, 'google+', + windowOptions);   
                     
                 });
                 
