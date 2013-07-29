@@ -1,71 +1,82 @@
-<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>social-media-share-buttons by danny8000</title>
+    <head>
+        <title>Social Media Share Button Example</title>
+        <meta name="description" content="JavaScript and HTML code for custom social media links."> 
+        <style>
+            .social-media {
+                font-family: Arial;
+            }
+            .social-media img {
+                border: 0;
+                margin-left: 16px;
+                vertical-align: middle;
+            }
+            .share-link {
+                color: #666;
+                font-size: 12px;
+                line-height: 12px;
+                padding: 0 0 4px 2px;
+                text-decoration: none;
+            }
+        </style>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>social-media-share-buttons</h1>
-        <p></p>
+    </head>
+    <body>
+        <h1>Social Media Share Example</h1>
 
-        <p class="view"><a href="https://github.com/danny8000/social-media-share-buttons">View the Project on GitHub <small>danny8000/social-media-share-buttons</small></a></p>
+        <div class="social-media">
+            <strong>Recommend this page using:</strong>
+            
+            <a href="javascript:void(0);" class="share-facebook"><img alt="Share on Facebook" src="static/img/facebook.png"></a>
+            <a href="javascript:void(0);" class="share-link share-facebook">Facebook</a>
 
+            <a href="javascript:void(0);" class="share-twitter"><img alt="Share on Twitter" src="static/img/twitter.png"></a>
+            <a href="javascript:void(0);" class="share-link share-twitter">Twitter</a>
+       
+            <a href="javascript:void(0);" class="share-linkedin"><img alt="Share on Linked-in" src="static/img/linkedin.png"></a>
+            <a href="javascript:void(0);" class="share-link share-linkedin">LinkedIn</a>
+        
+            <a href="javascript:void(0);" class="share-googleplus"><img alt="Share on Google Plus" src="static/img/google.png"></a>
+            <a href="javascript:void(0);" class="share-link share-googleplus">Google+</a>
 
-        <ul>
-          <li><a href="https://github.com/danny8000/social-media-share-buttons/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/danny8000/social-media-share-buttons/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/danny8000/social-media-share-buttons">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        </div>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+        (function(){
+            "use strict";
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+            $(document).ready(function(){
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+                var shareTitle = document.title;
+                var shareURL = encodeURIComponent(window.location);
+                var shareDescription = $('meta[name=description]').attr('content');
+                var shareSource = "Your Website Name Here";
+                var windowOptions = "'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes'";
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+                $(".share-facebook").click(function(){
+                    window.open('http://www.facebook.com/sharer.php?u=' + shareURL, 'facebook', + windowOptions),
+                });
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+                $(".share-twitter").click(function(){
+                    window.open('https://twitter.com/intent/tweet?text=' + shareTitle + ' ' + shareURL + '&amp;url=' + shareURL, 'twitter', 'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes');
+                });
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+                $(".share-linkedin").click(function(){
+                    window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', 'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes'); 
+                });
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+                $(".share-googleplus").click(function(){
+                    window.open('https://plusone.google.com/_/+1/confirm?hl=en&url=' + shareURL + '&title=' + shareTitle, 'google+', 'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes');   
+                    
+                });
+                
+            });
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+        })();
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+        </script>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/danny8000">danny8000</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+        </body>
 </html>
