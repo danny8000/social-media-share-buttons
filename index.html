@@ -57,24 +57,24 @@
                     var shareDescription = $('meta[name=description]').attr('content');
                     var shareSource = "Your Website Name Here";
                     var windowSpecs = "'toolbar=no,menubar=no,status=no,height=480,width=640,scrollbars=yes,resizable=yes'";
-
+                    var WindowName = "Share-Window"
                     /* Use jQuery to bind click actions to the social media links */
                     /* window.open(URL,name,specs,replace) */
 
                     $(".share-facebook").click(function(){
-                        window.open('http://www.facebook.com/sharer.php?u=' + shareURL, 'facebook', windowSpecs);
+                        window.open('http://www.facebook.com/sharer.php?u=' + shareURL, WindowName, windowSpecs);
                     });
 
                     $(".share-twitter").click(function(){
-                        window.open('https://twitter.com/share?url=' + shareURL, 'Tweet', windowSpecs);
+                        window.open('https://twitter.com/share?url=' + shareURL, WindowName, windowSpecs);
                     });
 
                     $(".share-linkedin").click(function(){
-                        window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', windowSpecs); 
+                        window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, WindowName, windowSpecs); 
                     });
 
                     $(".share-googleplus").click(function(){
-                        window.open('https://plus.google.com/share?url={' + shareURL + '}', 'googleplus', windowSpecs);   
+                        window.open('https://plus.google.com/share?url={' + shareURL + '}', WindowName, windowSpecs);   
                     });
                     
                 });
