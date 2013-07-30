@@ -19,7 +19,6 @@ https://dev.twitter.com/docs/tweet-button
 
 See the section "Build Your Own Tweet Button"
 
-
 ### Facebook
 
 https://developers.facebook.com/docs/reference/plugins/share-links/
