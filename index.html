@@ -62,19 +62,19 @@
                     /* window.open(URL,name,specs,replace) */
 
                     $(".share-facebook").click(function(){
-                        window.open('http://www.facebook.com/sharer.php?u=' + shareURL, 'facebook', + windowSpecs),
+                        window.open('http://www.facebook.com/sharer.php?u=' + shareURL, 'facebook', windowSpecs);
                     });
 
                     $(".share-twitter").click(function(){
-                        window.open('https://twitter.com/intent/tweet?text=' + shareTitle + ' ' + shareURL + '&amp;url=' + shareURL, 'twitter', + windowSpecs);
+                        window.open('https://twitter.com/intent/tweet?text=' + shareTitle + '&amp;url=' + shareURL, 'twitter', windowSpecs);
                     });
 
                     $(".share-linkedin").click(function(){
-                        window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', + windowSpecs); 
+                        window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', windowSpecs); 
                     });
 
                     $(".share-googleplus").click(function(){
-                        window.open('https://plus.google.com/share?url={' + shareURL + '}, 'googleplus', + windowSpecs);   
+                        window.open('https://plus.google.com/share?url={' + shareURL + '}', 'googleplus', windowSpecs);   
                     });
                     
                 });
