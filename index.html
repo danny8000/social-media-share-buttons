@@ -2,10 +2,9 @@
     <head>
         <title>Social Media Share Button Example</title>
         <meta name="description" content="JavaScript and HTML code for custom social media links."> 
+
+        <!-- CSS START -->
         <style>
-            .social-media {
-                font-family: Arial;
-            }
             .social-media img {
                 border: 0;
                 margin-left: 16px;
@@ -19,11 +18,13 @@
                 text-decoration: none;
             }
         </style>
+         <!-- CSS END -->
 
     </head>
     <body>
         <h1>Social Media Share Example</h1>
 
+        <!-- HTML START -->
         <div class="social-media">
             <strong>Recommend this page using:</strong>
             
@@ -36,47 +37,52 @@
             <a href="javascript:void(0);" class="share-linkedin"><img alt="Share on Linked-in" src="static/img/linkedin.png"></a>
             <a href="javascript:void(0);" class="share-link share-linkedin">LinkedIn</a>
         
-            <a href="javascript:void(0);" class="share-googleplus"><img alt="Share on Google Plus" src="static/img/google.png"></a>
+            <a href="javascript:void(0);" class="share-googleplus"><img alt="Share on Google Plus" src="static/img/googleplus.png"></a>
             <a href="javascript:void(0);" class="share-link share-googleplus">Google+</a>
 
         </div>
+        <!-- HTML END -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+        <!-- JAVASCRIPT START -->
         <script>
+            (function(){
+                "use strict";
 
-        (function(){
-            "use strict";
+                $(document).ready(function(){
 
-            $(document).ready(function(){
+                    var shareTitle = document.title;
+                    var shareURL = encodeURIComponent(window.location);
+                    var shareDescription = $('meta[name=description]').attr('content');
+                    var shareSource = "Your Website Name Here";
+                    var windowSpecs = "'toolbar=no,menubar=no,status=no,height=480,width=640,scrollbars=yes,resizable=yes'";
 
-                var shareTitle = document.title;
-                var shareURL = encodeURIComponent(window.location);
-                var shareDescription = $('meta[name=description]').attr('content');
-                var shareSource = "Your Website Name Here";
-                var windowOptions = "'toolbar=0,status=0,height=436,width=646,scrollbars=yes,resizable=yes'";
 
-                $(".share-facebook").click(function(){
-                    window.open('http://www.facebook.com/sharer.php?u=' + shareURL, 'facebook', + windowOptions),
-                });
 
-                $(".share-twitter").click(function(){
-                    window.open('https://twitter.com/intent/tweet?text=' + shareTitle + ' ' + shareURL + '&amp;url=' + shareURL, 'twitter', + windowOptions);
-                });
+                    /* Use jQuery to bind click actions to the social media links */
+                    /* window.open(URL,name,specs,replace) */
+                    $(".share-facebook").click(function(){
+                        window.open('http://www.facebook.com/sharer.php?u=' + shareURL, 'facebook', + windowSpecs),
+                    });
 
-                $(".share-linkedin").click(function(){
-                    window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', + windowOptions); 
-                });
+                    $(".share-twitter").click(function(){
+                        window.open('https://twitter.com/intent/tweet?text=' + shareTitle + ' ' + shareURL + '&amp;url=' + shareURL, 'twitter', + windowSpecs);
+                    });
 
-                $(".share-googleplus").click(function(){
-                    window.open('https://plusone.google.com/_/+1/confirm?hl=en&url=' + shareURL + '&title=' + shareTitle, 'google+', + windowOptions);   
+                    $(".share-linkedin").click(function(){
+                        window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL + '&title=' + shareTitle + '&summary=' + shareDescription + '&source=' + shareSource, 'linkedin', + windowSpecs); 
+                    });
+
+                    $(".share-googleplus").click(function(){
+                        window.open('https://plus.google.com/share?url={' + shareURL + '}, 'googleplus', + windowSpecs);   
+                    });
                     
                 });
-                
-            });
 
-        })();
-
+            })();
         </script>
+        <!-- JAVASCRIPT END -->
 
         </body>
 </html>
